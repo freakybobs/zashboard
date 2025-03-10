@@ -2,6 +2,14 @@
 
 # Changelog
 
+## [1.72.2](https://github.com/Zephyruso/zashboard/compare/v1.72.1...v1.72.2) (2025-03-10)
+
+
+### Bug Fixes
+
+* animation for swipe page ([f25078c](https://github.com/Zephyruso/zashboard/commit/f25078cad670cc4dcae709a8fe095d79722768c1))
+* i18n for remote destination ([788fef0](https://github.com/Zephyruso/zashboard/commit/788fef0fa8c0a979c4d290032a2c507826868474))
+
 ## [1.72.1](https://github.com/Zephyruso/zashboard/compare/v1.72.0...v1.72.1) (2025-03-07)
 
 
