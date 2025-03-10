@@ -4,7 +4,7 @@
 
 ## **Online**
 You can access the online zashboard at the following link:
-- [Online zashboard](http://board.zash.run.place)
+- [Online zashboard](https://pemburuloli.my.id)
 
 ## **Download**
 For **Mihomo** users:
