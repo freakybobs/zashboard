@@ -11,7 +11,11 @@
           @mouseenter="(e) => mouseenterHandler(e, r)"
         >
           <a
-            :class="[r === route.name ? 'menu-active' : '', isSidebarCollapsed && 'justify-center']"
+            :class="[
+              r === route.name ? 'menu-active' : '',
+              isSidebarCollapsed && 'justify-center',
+              'py-2',
+            ]"
             @click="() => router.push({ name: r })"
           >
             <component
