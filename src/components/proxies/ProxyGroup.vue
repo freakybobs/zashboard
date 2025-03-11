@@ -96,6 +96,7 @@ import { prettyBytesHelper } from '@/helper'
 import { useTooltip } from '@/helper/tooltip'
 import { activeConnections } from '@/store/connections'
 import {
+  fetchProxies,
   getNowProxyNodeName,
   hiddenGroupMap,
   proxyGroupLatencyTest,
@@ -167,8 +168,13 @@ const tipForFixed = (e: Event) => {
   })
 }
 
-const handlerProxySelect = (name: string) => {
+const handlerProxySelect = async (name: string) => {
   if (proxyGroup.value.type.toLowerCase() === PROXY_TYPE.LoadBalance) return
+
+  if (proxyGroup.value.now === name) {
+    await fetchProxies()
+    if (proxyGroup.value.now === name) return
+  }
 
   selectProxy(props.name, name)
 }
