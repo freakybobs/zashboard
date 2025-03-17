@@ -40,7 +40,7 @@ export default defineComponent<{
       const metadata = conn.metadata
       const componentMap: Record<CONNECTIONS_TABLE_ACCESSOR_KEY, JSX.Element> = {
         [CONNECTIONS_TABLE_ACCESSOR_KEY.Host]: (
-          <span class="text-primary/80 w-80 grow truncate">
+          <span class="text-info w-80 grow truncate">
             {metadata.host || metadata.sniffHost || metadata.destinationIP}:
             {metadata.destinationPort}
           </span>

@@ -2,7 +2,7 @@
   <div class="card w-full gap-2 p-2 text-sm">
     <div class="flex flex-1 items-center gap-2">
       <span>{{ index }}.</span>
-      <span class="text-primary">{{ ruleProvider.name }}</span>
+      <span class="text-info">{{ ruleProvider.name }}</span>
       <span class="badge badge-sm bg-base-200">
         {{ ruleProvider.ruleCount }}
       </span>
