@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-full flex-col gap-2 overflow-y-auto overflow-x-hidden p-2">
+  <div class="flex h-full flex-col gap-2 overflow-x-hidden overflow-y-auto p-2">
     <ChartsCard />
     <NetworkCard />
     <ConnectionHistory />

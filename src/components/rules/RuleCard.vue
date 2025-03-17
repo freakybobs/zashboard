@@ -2,9 +2,9 @@
   <div class="card gap-2 p-2 text-sm">
     <div>
       <span class="mr-2">{{ index }}.</span>
-      <span class="mr-2">{{ rule.type }}</span>
+      <span class="text-info mr-2">{{ rule.type }}</span>
       <span
-        class="mr-2 text-primary"
+        class="mr-2"
         v-if="rule.payload"
       >
         {{ rule.payload }}
@@ -16,7 +16,7 @@
         {{ size }}
       </span>
     </div>
-    <div class="flex items-center gap-1 text-base-content/80">
+    <div class="text-base-content/80 flex items-center gap-1">
       <ProxyName
         :name="rule.proxy"
         class="text-xs"

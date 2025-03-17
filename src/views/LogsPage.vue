@@ -12,9 +12,9 @@
       class="p-2"
     >
       <template v-slot="{ item }: { item: LogWithSeq }">
-        <div class="card mb-1 block break-all p-2 text-sm">
+        <div class="card mb-1 block p-2 text-sm break-all">
           <span>{{ item.seq }}</span>
-          <span class="mx-2 text-primary">
+          <span class="text-primary mx-2">
             {{ item.time }}
           </span>
           <span :class="textColorMapForType[item.type as keyof typeof textColorMapForType]">
@@ -36,10 +36,13 @@ import type { LogWithSeq } from '@/types'
 import { computed } from 'vue'
 
 const textColorMapForType = {
-  [LOG_LEVEL.Error]: 'text-error',
-  [LOG_LEVEL.Warning]: 'text-warning',
-  [LOG_LEVEL.Info]: 'text-info',
+  [LOG_LEVEL.Trace]: 'text-success',
   [LOG_LEVEL.Debug]: 'text-accent',
+  [LOG_LEVEL.Info]: 'text-info',
+  [LOG_LEVEL.Warning]: 'text-warning',
+  [LOG_LEVEL.Error]: 'text-error',
+  [LOG_LEVEL.Fatal]: 'text-error',
+  [LOG_LEVEL.Panic]: 'text-error',
 }
 
 const renderLogs = computed(() => {

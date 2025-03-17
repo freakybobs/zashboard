@@ -10,6 +10,7 @@ import {
   PROXY_SORT_TYPE,
   TABLE_SIZE,
   TABLE_WIDTH_MODE,
+  TEST_URL,
 } from '@/constant'
 import { getMinCardWidth, isMiddleScreen, isPreferredDark } from '@/helper/utils'
 import type { SourceIPLabel } from '@/types'
@@ -28,6 +29,21 @@ export const defaultTheme = useStorage<string>(
 )
 export const darkTheme = useStorage<string>('config/dark-theme', 'dark')
 export const autoTheme = useStorage<boolean>('config/auto-theme', isDefault)
+
+const replaceLegacyTheme = (theme: string) => {
+  if (theme === 'light-daisyui-v5') {
+    return 'light'
+  }
+
+  if (theme === 'dark-daisyui-v5') {
+    return 'dark'
+  }
+
+  return theme
+}
+
+defaultTheme.value = replaceLegacyTheme(defaultTheme.value)
+darkTheme.value = replaceLegacyTheme(darkTheme.value)
 
 export const theme = computed(() => {
   if (autoTheme.value && isPreferredDark.value) {
@@ -75,10 +91,7 @@ export const showStatisticsWhenSidebarCollapsed = useStorage(
 // proxies
 export const collapseGroupMap = useStorage<Record<string, boolean>>('config/collapse-group-map', {})
 export const twoColumnProxyGroup = useStorage('config/two-columns', true)
-export const speedtestUrl = useStorage<string>(
-  'config/speedtest-url',
-  'https://www.gstatic.com/generate_204',
-)
+export const speedtestUrl = useStorage<string>('config/speedtest-url', TEST_URL)
 export const independentLatencyTest = useStorage('config/independent-latency-test', false)
 export const speedtestTimeout = useStorage<number>('config/speedtest-timeout', 5000)
 export const proxySortType = useStorage<PROXY_SORT_TYPE>(
@@ -102,7 +115,7 @@ export const minProxyCardWidth = useStorage<number>(
 )
 export const manageHiddenGroup = useStorage('config/manage-hidden-group-mode', false)
 
-export const displayGlobalByMode = useStorage('config/display-global-by-mode', true)
+export const displayGlobalByMode = useStorage('config/display-global-by-mode', false)
 export const iconSize = useStorage('config/icon-size', 14)
 export const iconMarginRight = useStorage('config/icon-margin-right', 6)
 export const proxyCountMode = useStorage('config/proxies-count-mode', PROXY_COUNT_MODE.ALIVE_TOTAL)

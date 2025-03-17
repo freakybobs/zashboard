@@ -7,6 +7,7 @@ import {
   SwatchIcon,
 } from '@heroicons/vue/24/outline'
 
+export const TEST_URL = 'https://www.gstatic.com/generate_204'
 export const IPV6_TEST_URL = 'https://ipv6.google.com/generate_204'
 export const NOT_CONNECTED = 0
 export enum LANG {
@@ -96,10 +97,13 @@ export enum CONNECTION_TAB_TYPE {
 }
 
 export enum LOG_LEVEL {
-  Info = 'info',
-  Error = 'error',
-  Warning = 'warning',
+  Trace = 'trace',
   Debug = 'debug',
+  Info = 'info',
+  Warning = 'warning',
+  Error = 'error',
+  Fatal = 'fatal',
+  Panic = 'panic',
   Silent = 'silent',
 }
 

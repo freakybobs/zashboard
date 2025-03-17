@@ -153,7 +153,6 @@ const zh: LANG_MESSAGE = {
   label: '标签',
   optional: '可选',
   swipeInTabs: '滑动切换页面二级标签',
-  connectionIP: '连接IP',
   simpleCardPreset: '简洁预设',
   detailedCardPreset: '详细预设',
   refresh: '刷新',

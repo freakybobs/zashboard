@@ -238,8 +238,8 @@ const handlerClickUpgradeUI = async () => {
 const themes = [
   'light',
   'dark',
-  'light-daisyui-v5',
-  'dark-daisyui-v5',
+  'light-legacy',
+  'dark-legacy',
   'cupcake',
   'bumblebee',
   'emerald',

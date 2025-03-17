@@ -5,15 +5,15 @@
       class="h-full w-full"
     ></div>
     <span
-      class="hidden border-base-content/10 bg-base-100/70 text-base-content"
+      class="border-base-content/10 bg-base-100/70 text-base-content hidden"
       ref="baseColorRef"
     ></span>
     <span
-      class="hidden border-b-primary/30 border-t-info/30 bg-info/60 text-primary/60"
+      class="border-b-primary/30 border-t-info/30 bg-info/60 text-primary/60 hidden"
       ref="themeColorRef"
     ></span>
     <button
-      class="btn btn-ghost btn-xs absolute bottom-0 right-1"
+      class="btn btn-ghost btn-xs absolute right-1 bottom-0"
       @click="isPaused = !isPaused"
     >
       <component

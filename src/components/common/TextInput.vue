@@ -58,7 +58,7 @@ const handlerSearchInputClick = (e: Event) => {
   for (const item of props.menus) {
     const itemDiv = document.createElement('div')
 
-    itemDiv.className = 'cursor-pointer p-1 transition-transform hover:scale-105'
+    itemDiv.className = 'cursor-pointer p-1 transition-transform hover:scale-105 hover:text-primary'
 
     itemDiv.textContent = item
     itemDiv.addEventListener('click', () => {
@@ -69,6 +69,7 @@ const handlerSearchInputClick = (e: Event) => {
   }
 
   showTip(e, menus, {
+    theme: 'base',
     placement: 'bottom-start',
     trigger: 'click',
     interactive: true,

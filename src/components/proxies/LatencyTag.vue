@@ -2,7 +2,7 @@
   <div
     :class="
       twMerge(
-        'latency-tag flex h-5 w-10 select-none items-center justify-center rounded-xl bg-base-100 text-xs md:hover:bg-base-200',
+        'latency-tag bg-base-100 md:hover:bg-base-200 flex h-5 w-10 items-center justify-center rounded-xl text-xs select-none',
         color,
       )
     "
@@ -14,7 +14,7 @@
     ></span>
     <BoltIcon
       v-else-if="latency === NOT_CONNECTED || !latency"
-      class="h-3 w-3 text-base-content"
+      class="text-base-content h-3 w-3"
     />
     <div
       v-show="latency !== NOT_CONNECTED && !loading"
@@ -50,7 +50,7 @@ const handlerHistoryTip = (e: Event) => {
     const time = document.createElement('div')
     const latency = document.createElement('div')
 
-    time.textContent = dayjs(item.time).format('HH:mm:ss')
+    time.textContent = dayjs(item.time).format('YYYY-MM-DD HH:mm:ss')
     latency.textContent = item.delay + 'ms'
     latency.className = getColorForLatency(item.delay)
 

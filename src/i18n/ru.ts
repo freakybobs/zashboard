@@ -155,7 +155,6 @@ const ru: LANG_MESSAGE = {
   label: 'Метка',
   optional: 'Необязательно',
   swipeInTabs: 'Провести для переключения вкладок',
-  connectionIP: 'IP-источник соединения',
   simpleCardPreset: 'Простой',
   detailedCardPreset: 'Подробный',
   refresh: 'Обновить',

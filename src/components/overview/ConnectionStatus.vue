@@ -1,30 +1,25 @@
 <template>
   <div class="bg-base-200/50 relative h-28 rounded-lg p-2 text-sm">
-    <div class="flex flex-col">
+    <div class="flex h-full flex-col justify-between">
       <div>
-        <span class="inline-block w-28">Baidu </span>
+        <span class="inline-block w-20">Baidu </span>
         :
         <span :class="getColorForLatency(Number(baiduLatency))">{{ baiduLatency }}ms </span>
       </div>
       <div>
-        <span class="inline-block w-28">Cloudflare </span>
+        <span class="inline-block w-20">Cloudflare </span>
         :
         <span :class="getColorForLatency(Number(cloudflareLatency))"
           >{{ cloudflareLatency }}ms
         </span>
       </div>
       <div>
-        <span class="inline-block w-28">OpenAI CDN</span>
-        :
-        <span :class="getColorForLatency(Number(openAILatency))">{{ openAILatency }}ms </span>
-      </div>
-      <div>
-        <span class="inline-block w-28">Github </span>
+        <span class="inline-block w-20">Github </span>
         :
         <span :class="getColorForLatency(Number(githubLatency))">{{ githubLatency }}ms </span>
       </div>
       <div>
-        <span class="inline-block w-28">YouTube </span>
+        <span class="inline-block w-20">YouTube </span>
         :
         <span :class="getColorForLatency(Number(youtubeLatency))">{{ youtubeLatency }}ms </span>
       </div>
@@ -43,14 +38,12 @@ import {
   getBaiduLatencyAPI,
   getCloudflareLatencyAPI,
   getGithubLatencyAPI,
-  getOpenAILatencyAPI,
   getYouTubeLatencyAPI,
 } from '@/api'
 import {
   baiduLatency,
   cloudflareLatency,
   githubLatency,
-  openAILatency,
   youtubeLatency,
 } from '@/composables/overview'
 import { getColorForLatency } from '@/helper'
@@ -67,10 +60,6 @@ const getLatency = async () => {
     cloudflareLatency.value = res.toFixed(0)
   })
 
-  getOpenAILatencyAPI().then((res) => {
-    openAILatency.value = res.toFixed(0)
-  })
-
   getGithubLatencyAPI().then((res) => {
     githubLatency.value = res.toFixed(0)
   })
@@ -83,7 +72,7 @@ const getLatency = async () => {
 onMounted(() => {
   if (
     autoConnectionCheck.value &&
-    [baiduLatency, cloudflareLatency, openAILatency, githubLatency, youtubeLatency].some(
+    [baiduLatency, cloudflareLatency, githubLatency, youtubeLatency].some(
       (item) => item.value === '',
     )
   ) {

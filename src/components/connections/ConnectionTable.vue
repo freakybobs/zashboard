@@ -156,6 +156,7 @@ import {
 } from '@/constant'
 import {
   fromNow,
+  getChainsStringFromConnection,
   getDestinationFromConnection,
   getDestinationTypeFromConnection,
   getIPLabelFromMap,
@@ -279,7 +280,7 @@ const columns: ColumnDef<Connection>[] = [
   {
     header: () => t(CONNECTIONS_TABLE_ACCESSOR_KEY.Chains),
     id: CONNECTIONS_TABLE_ACCESSOR_KEY.Chains,
-    accessorFn: (original) => original.chains.join(','),
+    accessorFn: getChainsStringFromConnection,
     cell: ({ row }) => {
       const chains: VNode[] = []
       const originChains = row.original.chains

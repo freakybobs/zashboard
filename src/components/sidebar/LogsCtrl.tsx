@@ -1,9 +1,10 @@
+import { isSingBox } from '@/api'
 import { LOG_LEVEL } from '@/constant'
 import { initLogs, isPaused, logFilter, logLevel, logs } from '@/store/logs'
 import { logRetentionLimit, logSearchHistory } from '@/store/settings'
 import { PauseIcon, PlayIcon, WrenchScrewdriverIcon, XMarkIcon } from '@heroicons/vue/24/outline'
 import { debounce } from 'lodash'
-import { defineComponent, ref, watch } from 'vue'
+import { computed, defineComponent, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 import DialogWrapper from '../common/DialogWrapper.vue'
 import TextInput from '../common/TextInput.vue'
@@ -37,6 +38,13 @@ export default defineComponent({
 
     watch(logFilter, insertLogSearchHistory)
 
+    const logLevels = computed(() => {
+      if (isSingBox.value) {
+        return Object.values(LOG_LEVEL)
+      }
+      return [LOG_LEVEL.Debug, LOG_LEVEL.Info, LOG_LEVEL.Warning, LOG_LEVEL.Error, LOG_LEVEL.Silent]
+    })
+
     return () => {
       const levelSelect = (
         <select
@@ -44,7 +52,7 @@ export default defineComponent({
           v-model={logLevel.value}
           onChange={initLogs}
         >
-          {(Object.values(LOG_LEVEL) as string[]).map((opt) => (
+          {logLevels.value.map((opt) => (
             <option
               key={opt}
               value={opt}

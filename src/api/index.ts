@@ -26,10 +26,8 @@ axios.interceptors.response.use(null, (error) => {
 
       showNotification({ content: 'unauthorizedTip' })
     })
-  } else if (error.status === 404) {
-    activeUuid.value = null
-    router.push({ name: ROUTE_NAME.setup })
   }
+
   return error
 })
 
@@ -329,10 +327,6 @@ export const getYouTubeLatencyAPI = () => {
 
 export const getGithubLatencyAPI = () => {
   return getLatencyFromUrlAPI('https://github.githubassets.com/favicon.ico')
-}
-
-export const getOpenAILatencyAPI = () => {
-  return getLatencyFromUrlAPI('https://openai.com/favicon.ico')
 }
 
 export const getBaiduLatencyAPI = () => {

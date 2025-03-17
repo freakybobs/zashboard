@@ -10,7 +10,7 @@
       class="relative w-full"
     >
       <div
-        class="absolute left-0 top-0 w-full"
+        class="absolute top-0 left-0 w-full"
         :style="{
           transform: `translateY(${virtualRows[0]?.start ?? 0}px)`,
         }"

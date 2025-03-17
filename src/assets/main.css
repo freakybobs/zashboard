@@ -86,7 +86,6 @@
 .tippy-box {
   @apply bg-neutral text-neutral-content z-9999 shadow-md;
 }
-
 .tippy-box[data-placement^='top'] > .tippy-arrow:before {
   @apply border-t-neutral;
 }
@@ -98,6 +97,22 @@
 }
 .tippy-box[data-placement^='left'] > .tippy-arrow:before {
   @apply border-l-neutral;
+}
+
+.tippy-box[data-theme^='base'] {
+  @apply bg-base-100 border-base-200 text-base-content z-9999 border shadow-md;
+}
+.tippy-box[data-theme^='base'][data-placement^='top'] > .tippy-arrow:before {
+  @apply border-t-base-100;
+}
+.tippy-box[data-theme^='base'][data-placement^='right'] > .tippy-arrow:before {
+  @apply border-r-base-100;
+}
+.tippy-box[data-theme^='base'][data-placement^='bottom'] > .tippy-arrow:before {
+  @apply border-b-base-100;
+}
+.tippy-box[data-theme^='base'][data-placement^='left'] > .tippy-arrow:before {
+  @apply border-l-base-100;
 }
 
 @media screen and (max-width: 768px) {

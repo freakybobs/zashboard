@@ -15,7 +15,6 @@ export const ipipnetIP = ref<IPInfo>({
 })
 
 export const baiduLatency = ref('')
-export const openAILatency = ref('')
 export const githubLatency = ref('')
 export const youtubeLatency = ref('')
 export const cloudflareLatency = ref('')

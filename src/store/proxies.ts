@@ -8,7 +8,7 @@ import {
   selectProxyAPI,
 } from '@/api'
 import { useNotification } from '@/composables/notification'
-import { IPV6_TEST_URL, NOT_CONNECTED, PROXY_TYPE } from '@/constant'
+import { IPV6_TEST_URL, NOT_CONNECTED, PROXY_TYPE, TEST_URL } from '@/constant'
 import { isProxyGroup } from '@/helper'
 import type { Proxy, ProxyProvider } from '@/types'
 import { useStorage } from '@vueuse/core'
@@ -32,13 +32,19 @@ export const hiddenGroupMap = useStorage<Record<string, boolean>>('config/hidden
 export const proxyProviederList = ref<ProxyProvider[]>([])
 
 export const getTestUrl = (groupName?: string) => {
+  const defaultUrl = speedtestUrl.value || TEST_URL
+
   if (!groupName) {
-    return speedtestUrl.value
+    return defaultUrl
   }
 
   const proxyNode = proxyMap.value[groupName]
 
-  return independentLatencyTest.value ? proxyNode.testUrl || speedtestUrl.value : speedtestUrl.value
+  if (independentLatencyTest.value && proxyNode.testUrl) {
+    return proxyNode.testUrl
+  }
+
+  return defaultUrl
 }
 
 export const getLatencyByName = (proxyName: string, groupName?: string) => {

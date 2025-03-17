@@ -153,7 +153,6 @@ const en = {
   label: 'Label',
   optional: 'Optional',
   swipeInTabs: 'Swipe to Switch Between Tabs',
-  connectionIP: 'Connection IP',
   simpleCardPreset: 'Simple Preset',
   detailedCardPreset: 'Detailed Preset',
   refresh: 'Refresh',

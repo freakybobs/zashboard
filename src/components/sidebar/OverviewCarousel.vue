@@ -1,6 +1,6 @@
 <template>
   <div
-    class="card carousel carousel-vertical h-28 shrink-0 overflow-x-hidden text-sm hover:scrollbar-thin"
+    class="card carousel carousel-vertical hover:scrollbar-thin h-28 shrink-0 overflow-x-hidden text-sm"
   >
     <SpeedCharts class="carousel-item box-border" />
     <MemoryCharts class="carousel-item box-border" />
