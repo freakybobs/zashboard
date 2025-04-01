@@ -19,7 +19,7 @@
             @click.stop="handlerGroupToggle"
           >
             <EyeIcon
-              v-if="!hiddenGroupMap[proxyGroup.name]"
+              v-if="!hiddenGroup"
               class="h-3 w-3"
             />
             <EyeSlashIcon
@@ -94,7 +94,7 @@
 <script setup lang="ts">
 import { useRenderProxies } from '@/composables/renderProxies'
 import { PROXY_TYPE } from '@/constant'
-import { prettyBytesHelper } from '@/helper'
+import { isHiddenGroup, prettyBytesHelper } from '@/helper'
 import { useTooltip } from '@/helper/tooltip'
 import { activeConnections } from '@/store/connections'
 import {
@@ -149,8 +149,15 @@ const downloadTotal = computed(() => {
   return speed
 })
 
+const hiddenGroup = computed({
+  get: () => isHiddenGroup(props.name),
+  set: (value: boolean) => {
+    hiddenGroupMap.value[props.name] = value
+  },
+})
+
 const handlerGroupToggle = () => {
-  hiddenGroupMap.value[props.name] = !hiddenGroupMap.value[props.name]
+  hiddenGroup.value = !hiddenGroup.value
 }
 
 const { showTip } = useTooltip()

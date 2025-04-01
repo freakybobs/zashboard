@@ -197,6 +197,11 @@ watch(
   },
 )
 
+watch(documentVisible, () => {
+  if (documentVisible.value !== 'visible') return
+  fetchProxies()
+})
+
 const { checkUIUpdate } = useSettings()
 
 checkUIUpdate()

@@ -1,12 +1,7 @@
 import { PROXY_TAB_TYPE } from '@/constant'
+import { isHiddenGroup } from '@/helper'
 import { configs } from '@/store/config'
-import {
-  GLOBAL,
-  hiddenGroupMap,
-  proxyGroupList,
-  proxyMap,
-  proxyProviederList,
-} from '@/store/proxies'
+import { GLOBAL, proxyGroupList, proxyMap, proxyProviederList } from '@/store/proxies'
 import { displayGlobalByMode, manageHiddenGroup } from '@/store/settings'
 import { isEmpty } from 'lodash'
 import { computed, ref } from 'vue'
@@ -18,13 +13,7 @@ const filterGroups = (all: string[]) => {
     return all
   }
 
-  return all.filter((name) => {
-    if (Reflect.has(hiddenGroupMap.value, name)) {
-      return !hiddenGroupMap.value[name]
-    }
-
-    return !proxyMap.value[name].hidden
-  })
+  return all.filter((name) => !isHiddenGroup(name))
 }
 const proxiesTabShow = ref(PROXY_TAB_TYPE.PROXIES)
 const renderGroups = computed(() => {

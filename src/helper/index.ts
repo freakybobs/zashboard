@@ -7,7 +7,7 @@ import {
   ROUTE_NAME,
 } from '@/constant'
 import { timeSaved } from '@/store/overview'
-import { getLatencyByName, proxyMap } from '@/store/proxies'
+import { getLatencyByName, hiddenGroupMap, proxyMap } from '@/store/proxies'
 import {
   customThemes,
   hideUnavailableProxies,
@@ -286,4 +286,12 @@ export const applyCustomThemes = () => {
     style.className = `custom-theme ${theme.name}`
     document.head.appendChild(style)
   })
+}
+
+export const isHiddenGroup = (group: string) => {
+  if (Reflect.has(hiddenGroupMap.value, group)) {
+    return hiddenGroupMap.value[group]
+  }
+
+  return proxyMap.value[group]?.hidden
 }
