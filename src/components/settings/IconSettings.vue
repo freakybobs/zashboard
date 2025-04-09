@@ -1,6 +1,7 @@
 <template>
   <div class="flex items-center gap-2">
     {{ $t('customIcon') }}
+    <template v-if="iconReflectList.length"> ({{ iconReflectList.length }}) </template>
     <button
       v-if="iconReflectList.length"
       class="btn btn-sm btn-circle"

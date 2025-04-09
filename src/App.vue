@@ -6,7 +6,13 @@ import { RouterView } from 'vue-router'
 import { useNotification } from './composables/notification'
 import { FONTS } from './constant'
 import { getBase64FromIndexedDB, isPreferredDark, LOCAL_IMAGE } from './helper/utils'
-import { customBackgroundURL, dashboardTransparent, font, theme } from './store/settings'
+import {
+  customBackgroundURL,
+  dashboardTransparent,
+  disablePullToRefresh,
+  font,
+  theme,
+} from './store/settings'
 
 const app = ref<HTMLElement>()
 const { tipContent, tipShowModel, tipType } = useNotification()
@@ -57,6 +63,22 @@ const setThemeColor = () => {
 }
 
 watch(isPreferredDark, setThemeColor)
+
+watch(
+  disablePullToRefresh,
+  () => {
+    if (disablePullToRefresh.value) {
+      document.body.style.overscrollBehavior = 'none'
+      document.documentElement.style.overscrollBehavior = 'none'
+    } else {
+      document.body.style.overscrollBehavior = ''
+      document.documentElement.style.overscrollBehavior = ''
+    }
+  },
+  {
+    immediate: true,
+  },
+)
 
 onMounted(() => {
   watch(

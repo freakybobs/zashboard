@@ -172,6 +172,9 @@ const en = {
   save: 'Save',
   moreDetails: 'More Details',
   customIcon: 'Custom Icon',
+  disablePullToRefresh: 'Disable Pull To Refresh',
+  disablePullToRefreshTip:
+    'Pull-to-refresh and virtual scrolling components may sometimes conflict. If you often experience lag or accidentally trigger pull-to-refresh while scrolling up and down, you can try disabling pull-to-refresh.',
 }
 
 export type LANG_MESSAGE = typeof en

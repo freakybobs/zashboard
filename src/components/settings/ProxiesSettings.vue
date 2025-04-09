@@ -133,9 +133,6 @@
             v-model="displayGlobalByMode"
           />
         </div>
-      </div>
-      <div class="divider"></div>
-      <div class="grid grid-cols-1 gap-2 lg:grid-cols-2">
         <div class="flex items-center gap-2">
           {{ $t('iconSize') }}
           <input
@@ -153,6 +150,7 @@
           />
         </div>
       </div>
+      <div class="divider"></div>
       <IconSettings />
     </div>
   </div>

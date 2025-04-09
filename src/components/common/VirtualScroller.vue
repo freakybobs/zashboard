@@ -33,7 +33,7 @@
 
 <script setup lang="ts">
 import { useVirtualizer } from '@tanstack/vue-virtual'
-import { computed, ref } from 'vue'
+import { computed, nextTick, ref } from 'vue'
 
 const parentRef = ref<HTMLElement | null>(null)
 const props = withDefaults(
@@ -66,7 +66,9 @@ const measureElement = (el: Element) => {
     return
   }
 
-  rowVirtualizer.value.measureElement(el)
+  nextTick(() => {
+    rowVirtualizer.value.measureElement(el)
+  })
 
   return undefined
 }

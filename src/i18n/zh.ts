@@ -171,6 +171,9 @@ const zh: LANG_MESSAGE = {
   save: '保存',
   moreDetails: '更多详情',
   customIcon: '自定义图标',
+  disablePullToRefresh: '禁用下拉刷新',
+  disablePullToRefreshTip:
+    '下拉刷新和虚拟滚动的组件有时会有冲突，如果你在上下滚动的时候经常卡顿或者误触发下拉刷新，可以尝试禁用下拉刷新',
 }
 
 export default zh

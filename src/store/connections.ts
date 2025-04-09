@@ -130,7 +130,7 @@ export const connectionSortDirection = useStorage<SORT_DIRECTION>(
   SORT_DIRECTION.ASC,
 )
 export const connectionFilter = ref('')
-export const sourceIPFilter = ref(null)
+export const sourceIPFilter = ref<string[] | null>(null)
 export const isPaused = ref(false)
 
 export const connections = computed(() => {
@@ -161,7 +161,10 @@ export const renderConnections = computed(() => {
         conn.rulePayload,
       ]
 
-      if (sourceIPFilter.value !== null && conn.metadata.sourceIP !== sourceIPFilter.value) {
+      if (
+        sourceIPFilter.value !== null &&
+        sourceIPFilter.value.every((i) => i !== conn.metadata.sourceIP)
+      ) {
         return false
       }
 

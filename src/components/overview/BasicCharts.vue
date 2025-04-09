@@ -2,7 +2,7 @@
   <div class="relative h-28 w-full overflow-hidden">
     <div
       ref="chart"
-      class="h-full w-full"
+      class="absolute top-0 left-0 h-full w-full"
     ></div>
     <span
       class="border-base-content/10 bg-base-100/70 text-base-content hidden"
@@ -50,7 +50,7 @@ const themeColorRef = ref()
 const isPaused = ref(false)
 const chart = ref()
 
-onMounted(() => {
+onMounted(async () => {
   const baseColorStyle = getComputedStyle(baseColorRef.value)
   const themeColorStyle = getComputedStyle(themeColorRef.value)
 

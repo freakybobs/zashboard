@@ -1,6 +1,7 @@
 <template>
   <div class="flex items-center gap-2">
     {{ $t('sourceIPLabels') }}
+    <template v-if="sourceIPLabelList.length"> ({{ sourceIPLabelList.length }}) </template>
     <button
       v-if="sourceIPLabelList.length"
       class="btn btn-sm btn-circle"

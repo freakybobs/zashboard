@@ -21,9 +21,9 @@
             <IPCheck />
             <ConnectionStatus />
           </template>
-          <SpeedCharts />
-          <MemoryCharts />
-          <ConnectionsCharts />
+          <SpeedCharts v-if="isMounted" />
+          <MemoryCharts v-if="isMounted" />
+          <ConnectionsCharts v-if="isMounted" />
         </div>
       </div>
     </template>
@@ -105,4 +105,13 @@ import {
   showStatisticsWhenSidebarCollapsed,
   splitOverviewPage,
 } from '@/store/settings'
+import { onMounted, ref } from 'vue'
+
+const isMounted = ref(false)
+
+onMounted(() => {
+  setTimeout(() => {
+    isMounted.value = true
+  })
+})
 </script>
